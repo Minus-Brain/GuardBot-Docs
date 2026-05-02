@@ -3,14 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="yandex-verification" content="8e36255d26b2627f" />
-    <meta name="msvalidate.01" content="C57C957E7DD6FBD35480EB1B663BAB6F" />
     <title>GuardBot | Documentation</title>
     <link rel="icon" type="image/png" href="images/Icon.png?v=2">
     <link rel="apple-touch-icon" href="images/Icon.png?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "GuardBot Documentation",
+          "url": "https://docs.guardbot.tech",
+          "publisher": {
+            "@type": "Organization",
+            "name": "GuardBot",
+            "url": "https://guardbot.tech"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How to add the bot? - Как добавить бота?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Add the bot to your Telegram group and grant it administrator rights with message deletion and user banning permissions. - Добавьте бота в группу Telegram и предоставьте ему права администратора с доступом к удалению сообщений и блокировке пользователей."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to enable captcha? - Как включить капчу?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the /captcha command to enable and configure the verification type (Button, Math, Image, or Custom). - Используйте команду /captcha для включения и настройки типа верификации (Кнопка, Математика, Картинка или Кастомный вопрос)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What permissions does the bot need? - Какие права нужны боту?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Required: Delete messages, Ban users. Recommended: Pin messages, Manage invite links. - Обязательные: Удаление сообщений, Блокировка пользователей. Рекомендуемые: Закрепление сообщений, Управление ссылками."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="style.css">
     <style>
         :root {
@@ -105,7 +149,8 @@
 
             .step-item { padding: 16px; }
             .step-number { width: 32px; height: 32px; font-size: 14px; margin-right: 12px; }
-            .faq-question { padding: 22px 20px; font-size: 1rem; }
+            .faq-question { padding: 22px 20px; font-size: 1rem; text-align: left; background: none; border: none; width: 100%; cursor: pointer; display: flex; align-items: center; justify-content: space-between; color: var(--text-primary); }
+            .faq-text { font-size: 1rem; font-weight: 600; margin: 0; padding: 0; line-height: 1.4; color: inherit; }
             .faq-answer-inner { padding: 0 20px 24px 20px; }
         }
 
@@ -122,17 +167,17 @@
 
     <header>
         <div class="header-inner">
-            <a href="#intro" class="logo nav-link" data-page="intro">
+            <a href="#intro" class="logo nav-link" data-page="intro" title="GuardBot Documentation - Home">
                 <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                 GuardBot
             </a>
             
             <nav id="nav">
-                <a href="#intro" class="nav-link active" data-page="intro" data-en="Intro" data-ru="Введение">Intro</a>
-                <a href="#quickstart" class="nav-link" data-page="quickstart" data-en="Quick Start" data-ru="Быстрый старт">Quick Start</a>
-                <a href="#commands" class="nav-link" data-page="commands" data-en="Commands" data-ru="Команды">Commands</a>
-                <a href="#modules" class="nav-link" data-page="modules" data-en="Modules" data-ru="Модули">Modules</a>
-                <a href="#faq" class="nav-link" data-page="faq" data-en="FAQ" data-ru="FAQ">FAQ</a>
+                <a href="#intro" class="nav-link active" data-page="intro" data-en="Intro" data-ru="Введение" title="Go to Introduction">Intro</a>
+                <a href="#quickstart" class="nav-link" data-page="quickstart" data-en="Quick Start" data-ru="Быстрый старт" title="Go to Quick Start guide">Quick Start</a>
+                <a href="#commands" class="nav-link" data-page="commands" data-en="Commands" data-ru="Команды" title="Go to Commands list">Commands</a>
+                <a href="#modules" class="nav-link" data-page="modules" data-en="Modules" data-ru="Модули" title="Go to Modules description">Modules</a>
+                <a href="#faq" class="nav-link" data-page="faq" data-en="FAQ" data-ru="FAQ" title="Go to Frequently Asked Questions">FAQ</a>
             </nav>
 
             <div class="header-actions">
@@ -140,7 +185,7 @@
                     <button class="lang-btn active" data-lang="en">EN</button>
                     <button class="lang-btn" data-lang="ru">RU</button>
                 </div>
-                <a href="https://guardbot.tech" class="btn btn-secondary btn-back" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 10px;">
+                <a href="https://guardbot.tech" class="btn btn-secondary btn-back" style="padding: 10px 20px; font-size: 0.9rem; border-radius: 10px;" title="Return to main website guardbot.tech">
                     <span data-en="Back to Site" data-ru="На сайт">Back to Site</span>
                 </a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
@@ -156,7 +201,7 @@
             <section class="section">
                 <div class="container">
                     <div class="section-header reveal">
-                        <h2 class="section-title"><span class="text-gradient" data-en="Documentation" data-ru="Документация">Documentation</span></h2>
+                        <h1 class="section-title"><span class="text-gradient" data-en="GuardBot Documentation" data-ru="Документация GuardBot">GuardBot Documentation</span></h1>
                         <p class="section-subtitle" data-en="Technical specifications and manual." data-ru="Технические спецификации и руководство.">Technical specifications and manual.</p>
                     </div>
                     <div class="feature-card interactive-card reveal">
@@ -424,43 +469,43 @@
                     
                     <div class="faq-container">
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="Why is the bot ignoring administrators?" data-ru="Почему бот игнорирует администраторов?">Why is the bot ignoring administrators?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="Why is the bot ignoring administrators?" data-ru="Почему бот игнорирует администраторов?">Why is the bot ignoring administrators?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="Administrators are exempt from restrictions by default. To apply link filters to administrators, execute the command /links_admin on." data-ru="Администраторы исключены из ограничений по умолчанию. Для применения фильтров ссылок к администраторам выполните команду /links_admin on.">Administrators are exempt from restrictions by default. To apply link filters to administrators, execute the command /links_admin on.</div></div></div>
                         </div>
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="How to test the bot without blocking members?" data-ru="Как протестировать бота без блокировок?">How to test the bot without blocking members?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="How to test the bot without blocking members?" data-ru="Как протестировать бота без блокировок?">How to test the bot without blocking members?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="Execute the command /mode audit. The bot will log all violations without restricting users. Review results via /exportlogs 24h." data-ru="Выполните команду /mode audit. Бот будет логировать все нарушения без ограничения пользователей. Просмотрите результаты через /exportlogs 24h.">Execute the command /mode audit. The bot will log all violations without restricting users. Review results via /exportlogs 24h.</div></div></div>
                         </div>
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="What happens if a user fails captcha?" data-ru="Что происходит при провале капчи?">What happens if a user fails captcha?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="What happens if a user fails captcha?" data-ru="Что происходит при провале капчи?">What happens if a user fails captcha?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="Users are automatically removed after exceeding the attempt limit (default: 3) or timeout (default: 120 seconds). They can rejoin and try again." data-ru="Пользователи автоматически удаляются при превышении лимита попыток (по умолчанию: 3) или таймаута (по умолчанию: 120 секунд). Они могут вернуться и попробовать снова.">Users are automatically removed after exceeding the attempt limit (default: 3) or timeout (default: 120 seconds). They can rejoin and try again.</div></div></div>
                         </div>
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="What permissions does the bot need?" data-ru="Какие права нужны боту?">What permissions does the bot need?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="What permissions does the bot need?" data-ru="Какие права нужны боту?">What permissions does the bot need?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="Required: Delete messages, Ban users. Recommended: Pin messages, Manage invite links. Without required permissions the bot will fail silently." data-ru="Обязательные: Удаление сообщений, Блокировка пользователей. Рекомендуемые: Закрепление сообщений, Управление ссылками. Без обязательных прав бот не будет работать.">Required: Delete messages, Ban users. Recommended: Pin messages, Manage invite links. Without required permissions the bot will fail silently.</div></div></div>
                         </div>
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="How does anti-raid detection work?" data-ru="Как работает детекция рейдов?">How does anti-raid detection work?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="How does anti-raid detection work?" data-ru="Как работает детекция рейдов?">How does anti-raid detection work?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="The system monitors join frequency. If 5 or more users join within 30 seconds, a 10-minute lockdown activates automatically. New members cannot send messages during lockdown. Administrators are notified immediately." data-ru="Система отслеживает частоту вступлений. Если 5 или более пользователей вступают за 30 секунд, автоматически активируется 10-минутный локдаун. Новые участники не могут отправлять сообщения. Администраторы получают уведомление.">The system monitors join frequency. If 5 or more users join within 30 seconds, a 10-minute lockdown activates automatically. New members cannot send messages during lockdown. Administrators are notified immediately.</div></div></div>
                         </div>
                         <div class="faq-item reveal">
-                            <button class="faq-question">
-                                <span data-en="Can I allow specific domains in link filter?" data-ru="Можно ли разрешить определенные домены?">Can I allow specific domains in link filter?</span>
+                            <button class="faq-question" title="Show answer">
+                                <h3 class="faq-text" data-en="Can I allow specific domains in link filter?" data-ru="Можно ли разрешить определенные домены?">Can I allow specific domains in link filter?</h3>
                                 <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
                             </button>
                             <div class="faq-answer-wrapper"><div class="faq-answer-inner"><div class="faq-answer-content" data-en="Yes. Use /whitelist add domain.com to allow specific domains. Use /whitelist list to view all allowed domains. Telegram invite links are always blocked regardless of whitelist." data-ru="Да. Используйте /whitelist add domain.com для добавления домена. Используйте /whitelist list для просмотра. Инвайт-ссылки Telegram блокируются всегда, вне зависимости от белого списка.">Yes. Use /whitelist add domain.com to allow specific domains. Use /whitelist list to view all allowed domains. Telegram invite links are always blocked regardless of whitelist.</div></div></div>
