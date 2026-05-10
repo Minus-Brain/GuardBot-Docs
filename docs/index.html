@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109024384', 'ym');
-    
-        ym(109024384, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109024384" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GuardBot | Documentation</title>
@@ -35,6 +22,20 @@
             "name": "GuardBot",
             "url": "https://guardbot.tech"
           }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://guardbot.tech"
+          },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Documentation",
+            "item": "https://docs.guardbot.tech"
+          }]
         },
         {
           "@type": "FAQPage",
@@ -98,7 +99,7 @@
         .section-header { text-align: center; align-items: center; margin-bottom: 60px; display: flex; flex-direction: column; }
         .section-subtitle { margin: 0 auto; text-align: center; }
 
-        .page { padding-top: 120px; padding-bottom: 80px; min-height: 100vh; display: none; opacity: 0; transition: opacity 0.4s ease; }
+        .page { padding-top: 10px; padding-bottom: 40px; min-height: auto; display: none; opacity: 0; transition: opacity 0.4s ease; scroll-margin-top: 90px; }
         .page.active { display: block; opacity: 1; }
 
         .interactive-card { transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid var(--border); }
@@ -180,18 +181,10 @@
 
     <header>
         <div class="header-inner">
-            <a href="#intro" class="logo nav-link" data-page="intro" title="GuardBot Documentation - Home">
+            <a href="#intro" class="logo nav-link" title="GuardBot Documentation - Home">
                 <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                 GuardBot
             </a>
-            
-            <nav id="nav">
-                <a href="#intro" class="nav-link active" data-page="intro" data-en="Intro" data-ru="Введение" title="Go to Introduction">Intro</a>
-                <a href="#quickstart" class="nav-link" data-page="quickstart" data-en="Quick Start" data-ru="Быстрый старт" title="Go to Quick Start guide">Quick Start</a>
-                <a href="#commands" class="nav-link" data-page="commands" data-en="Commands" data-ru="Команды" title="Go to Commands list">Commands</a>
-                <a href="#modules" class="nav-link" data-page="modules" data-en="Modules" data-ru="Модули" title="Go to Modules description">Modules</a>
-                <a href="#faq" class="nav-link" data-page="faq" data-en="FAQ" data-ru="FAQ" title="Go to Frequently Asked Questions">FAQ</a>
-            </nav>
 
             <div class="header-actions">
                 <div class="lang-switch">
@@ -208,9 +201,28 @@
         </div>
     </header>
 
-    <main>
-        <!-- INTRO -->
-        <div class="page active" id="page-intro">
+    <div class="docs-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav id="nav">
+                <a href="#intro" class="nav-link active" data-en="Intro" data-ru="Введение" title="Go to Introduction">Intro</a>
+                <a href="#quickstart" class="nav-link" data-en="Setup Guide" data-ru="Настройка" title="Go to Setup Guide">Setup Guide</a>
+                <a href="#commands" class="nav-link" data-en="Commands" data-ru="Команды" title="Go to Commands list">Commands</a>
+                <a href="#deepdive" class="nav-link" data-en="Deep Dive" data-ru="Подробно" title="Go to Commands Deep Dive">Deep Dive</a>
+                <a href="#modules" class="nav-link" data-en="Modules" data-ru="Модули" title="Go to Modules description">Modules</a>
+                <a href="#trust" class="nav-link" data-en="Why GuardBot" data-ru="Почему GuardBot" title="Why GuardBot">Why GuardBot</a>
+                <a href="#faq" class="nav-link" data-en="FAQ" data-ru="FAQ" title="Go to Frequently Asked Questions">FAQ</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <nav aria-label="breadcrumb" class="breadcrumbs">
+                <a href="https://guardbot.tech" data-en="Home" data-ru="Главная">Home</a>
+                <span>/</span>
+                <span data-en="Documentation" data-ru="Документация">Documentation</span>
+            </nav>
+
+            <!-- INTRO -->
+            <div class="page active" id="intro">
             <section class="section">
                 <div class="container">
                     <div class="section-header reveal">
@@ -228,42 +240,42 @@
             </section>
         </div>
 
-        <!-- QUICK START -->
-        <div class="page" id="page-quickstart">
-            <section class="section">
-                <div class="container">
-                    <div class="section-header reveal">
-                        <h2 class="section-title" data-en="Quick Start" data-ru="Быстрый старт">Quick Start</h2>
-                        <p class="section-subtitle" data-en="Initial configuration guide." data-ru="Руководство по первоначальной настройке.">Initial configuration guide.</p>
+            <!-- QUICK START -->
+            <div class="page" id="quickstart">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header reveal">
+                            <h2 class="section-title" data-en="Comprehensive Setup Guide" data-ru="Подробное руководство по настройке">Comprehensive Setup Guide</h2>
+                            <p class="section-subtitle" data-en="Step-by-step instructions to fully deploy the bot." data-ru="Пошаговые инструкции для полного развертывания бота.">Step-by-step instructions to fully deploy the bot.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal">
+                            <div class="step-item">
+                                <span class="step-number">1</span>
+                                <div class="step-text" data-en="Add the bot to your Telegram group via the provided link or username." data-ru="Добавьте бота в группу Telegram через предоставленную ссылку или имя пользователя.">Add the bot to your Telegram group via the provided link or username.</div>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-number">2</span>
+                                <div class="step-text" data-en="Grant administrator rights to the bot. CRITICAL Permissions needed: 'Delete messages' and 'Ban users'. Without these, the bot cannot function." data-ru="Выдайте боту права администратора. КРИТИЧЕСКИ ВАЖНЫЕ разрешения: 'Удаление сообщений' и 'Блокировка пользователей'. Без них бот не сможет работать.">Grant administrator rights to the bot. CRITICAL Permissions needed: 'Delete messages' and 'Ban users'. Without these, the bot cannot function.</div>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-number">3</span>
+                                <div class="step-text" data-en="Execute the command /on in the group to activate all primary protection modules. This establishes the initial security perimeter." data-ru="Выполните команду /on в группе для активации основных модулей защиты. Это создаст начальный периметр безопасности.">Execute the command /on in the group to activate all primary protection modules. This establishes the initial security perimeter.</div>
+                            </div>
+                            <div class="step-item">
+                                <span class="step-number">4</span>
+                                <div class="step-text" data-en="Configure language settings and customize the smart captcha experience using the /captcha command." data-ru="Настройте языковые параметры и кастомизируйте умную капчу с помощью команды /captcha.">Configure language settings and customize the smart captcha experience using the /captcha command.</div>
+                            </div>
+                            <div class="step-item" style="margin-bottom: 0;">
+                                <span class="step-number">5</span>
+                                <div class="step-text" data-en="Execute /status to retrieve the diagnostic state of all modules and verify operational readiness." data-ru="Выполните /status для получения диагностического состояния всех модулей и проверки готовности к работе.">Execute /status to retrieve the diagnostic state of all modules and verify operational readiness.</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card interactive-card reveal">
-                        <div class="step-item">
-                            <span class="step-number">1</span>
-                            <div class="step-text" data-en="Add the bot to your Telegram group via the provided link or username." data-ru="Добавьте бота в группу Telegram через предоставленную ссылку или имя пользователя.">Add the bot to your Telegram group via the provided link or username.</div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-number">2</span>
-                            <div class="step-text" data-en="Grant administrator rights to the bot. Required permissions: Delete messages, Ban users. Optional but recommended: Pin messages, Manage invite links." data-ru="Выдайте боту права администратора. Требуемые разрешения: Удаление сообщений, Блокировка пользователей. Рекомендуемые: Закрепление сообщений, Управление ссылками.">Grant administrator rights to the bot. Required permissions: Delete messages, Ban users. Optional but recommended: Pin messages, Manage invite links.</div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-number">3</span>
-                            <div class="step-text" data-en="Send the command /on in the group chat to activate primary protection modules." data-ru="Отправьте команду /on в групповой чат для активации основных модулей защиты.">Send the command /on in the group chat to activate primary protection modules.</div>
-                        </div>
-                        <div class="step-item">
-                            <span class="step-number">4</span>
-                            <div class="step-text" data-en="Configure the desired language (EN/RU) and customize captcha settings via /captcha." data-ru="Настройте желаемый язык (EN/RU) и параметры капчи через команду /captcha.">Configure the desired language (EN/RU) and customize captcha settings via /captcha.</div>
-                        </div>
-                        <div class="step-item" style="margin-bottom: 0;">
-                            <span class="step-number">5</span>
-                            <div class="step-text" data-en="Send the command /status to verify system operation and module states." data-ru="Отправьте команду /status для проверки работы системы и состояния модулей.">Send the command /status to verify system operation and module states.</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
 
-        <!-- COMMANDS -->
-        <div class="page" id="page-commands">
+            <!-- COMMANDS -->
+            <div class="page" id="commands">
             <section class="section">
                 <div class="container">
                     <div class="section-header reveal">
@@ -425,10 +437,43 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- COMMANDS DEEP DIVE -->
+            <div class="page" id="deepdive">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header reveal">
+                            <h2 class="section-title" data-en="Commands Deep Dive" data-ru="Глубокое погружение в команды">Commands Deep Dive</h2>
+                            <p class="section-subtitle" data-en="Detailed mechanics for advanced configuration." data-ru="Детальная механика для продвинутой настройки.">Detailed mechanics for advanced configuration.</p>
+                        </div>
+                        
+                        <div class="feature-card interactive-card reveal" style="margin-bottom: 24px;">
+                            <h3 class="feature-title" data-en="/captcha Modes Explained" data-ru="Объяснение режимов /captcha">/captcha Modes Explained</h3>
+                            <p class="feature-desc" style="margin-bottom: 12px;" data-en="Use the /captcha command to open the interactive setup menu for user verification." data-ru="Используйте команду /captcha для открытия интерактивного меню настройки верификации пользователей.">Use the /captcha command to open the interactive setup menu for user verification.</p>
+                            <ul style="color: var(--text-secondary); margin-left: 20px; line-height: 1.6; font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px;">
+                                <li data-en="Button Mode: The simplest method. The user just clicks 'I am not a bot'." data-ru="Режим Кнопки: Самый простой метод. Пользователь просто нажимает 'Я не бот'.">Button Mode: The simplest method. The user just clicks 'I am not a bot'.</li>
+                                <li data-en="Math Mode: Generates a random equation (e.g., 5 + 7). Prevents basic auto-joiners." data-ru="Режим Математики: Генерирует случайное уравнение (например, 5 + 7). Предотвращает базовых ботов.">Math Mode: Generates a random equation (e.g., 5 + 7). Prevents basic auto-joiners.</li>
+                                <li data-en="Image Mode: A distorted captcha image is generated on the fly. Highly resistant to OCR and automated solvers." data-ru="Режим Картинки: Искаженная картинка генерируется на лету. Устойчива к OCR и авторешателям.">Image Mode: A distorted captcha image is generated on the fly. Highly resistant to OCR and automated solvers.</li>
+                                <li data-en="Custom Mode: Admins define specific questions (e.g., 'What is our project name?'). Ideal for specialized communities." data-ru="Кастомный Режим: Админы задают вопросы (например, 'Как называется наш проект?'). Идеально для профильных сообществ.">Custom Mode: Admins define specific questions (e.g., 'What is our project name?'). Ideal for specialized communities.</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-card interactive-card reveal" style="margin-bottom: 24px;">
+                            <h3 class="feature-title" data-en="/raid Setup" data-ru="Настройка /raid">/raid Setup</h3>
+                            <p class="feature-desc" data-en="GuardBot's anti-raid system is automatic, but understanding its parameters is critical. Execute /settings to view current limits. If the threshold is exceeded (e.g., 5 joins in 30 seconds), the bot initiates a lockdown protocol, disabling permissions for all new users until the raid stops." data-ru="Анти-рейд система GuardBot автоматическая, но понимание ее параметров критично. Выполните /settings для просмотра текущих лимитов. При превышении порога (например, 5 вступлений за 30 секунд), бот инициирует протокол локдауна, отключая права новых пользователей до окончания атаки.">GuardBot's anti-raid system is automatic, but understanding its parameters is critical. Execute /settings to view current limits. If the threshold is exceeded (e.g., 5 joins in 30 seconds), the bot initiates a lockdown protocol, disabling permissions for all new users until the raid stops.</p>
+                        </div>
+
+                        <div class="feature-card interactive-card reveal">
+                            <h3 class="feature-title" data-en="/settings Menu" data-ru="Меню /settings">/settings Menu</h3>
+                            <p class="feature-desc" data-en="The /settings command serves as the central control panel. From here, you can toggle individual modules, adjust silence durations, switch the interface language, and export configuration backups. Modifying settings requires full admin rights." data-ru="Команда /settings служит центральной панелью управления. Отсюда можно переключать отдельные модули, настраивать длительность мутов, менять язык интерфейса и экспортировать бэкапы. Изменение настроек требует полных прав администратора.">The /settings command serves as the central control panel. From here, you can toggle individual modules, adjust silence durations, switch the interface language, and export configuration backups. Modifying settings requires full admin rights.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- MODULES -->
-        <div class="page" id="page-modules">
+        <div class="page" id="modules">
             <section class="section">
                 <div class="container">
                     <div class="section-header reveal">
@@ -469,10 +514,40 @@
                     </div>
                 </div>
             </section>
+            
+            <!-- TRUST & AUTHORITY -->
+            <div class="page" id="trust">
+                <section class="section">
+                    <div class="container">
+                        <div class="section-header reveal">
+                            <h2 class="section-title" data-en="Why GuardBot" data-ru="Почему GuardBot">Why GuardBot</h2>
+                            <p class="section-subtitle" data-en="Enterprise-grade reliability and complete transparency." data-ru="Надежность корпоративного уровня и полная прозрачность.">Enterprise-grade reliability and complete transparency.</p>
+                        </div>
+                        <div class="features-grid">
+                            <div class="feature-card interactive-card reveal">
+                                <h3 class="feature-title" data-en="Security & Privacy" data-ru="Безопасность и Приватность">Security & Privacy</h3>
+                                <p class="feature-desc" data-en="GuardBot operates directly via the Telegram API. We do not store message history on our servers. The system processes only the metadata required for spam detection and raid prevention." data-ru="GuardBot работает напрямую через Telegram API. Мы не храним историю сообщений на наших серверах. Система обрабатывает только метаданные, необходимые для выявления спама и предотвращения рейдов.">GuardBot operates directly via the Telegram API. We do not store message history on our servers. The system processes only the metadata required for spam detection and raid prevention.</p>
+                            </div>
+                            <div class="feature-card interactive-card reveal">
+                                <h3 class="feature-title" data-en="Technical Excellence" data-ru="Техническое Превосходство">Technical Excellence</h3>
+                                <p class="feature-desc" data-en="Our service runs on a high-performance Debian-based cloud infrastructure, ensuring a 24/7 uptime guarantee with zero-delay message processing." data-ru="Наш сервис работает на высокопроизводительной облачной инфраструктуре на базе Debian, обеспечивая гарантию аптайма 24/7 и обработку сообщений без задержек.">Our service runs on a high-performance Debian-based cloud infrastructure, ensuring a 24/7 uptime guarantee with zero-delay message processing.</p>
+                            </div>
+                            <div class="feature-card interactive-card reveal">
+                                <h3 class="feature-title" data-en="Project Transparency" data-ru="Прозрачность Проекта">Project Transparency</h3>
+                                <p class="feature-desc" data-en="Founded by Narek, Lead Python Developer. Our primary focus is building the fastest, most reliable, and highly secure anti-spam tool for Telegram communities." data-ru="Проект основан Нареком, ведущим Python-разработчиком. Наша главная цель - создание самого быстрого, надежного и безопасного антиспам-инструмента для сообществ Telegram.">Founded by Narek, Lead Python Developer. Our primary focus is building the fastest, most reliable, and highly secure anti-spam tool for Telegram communities.</p>
+                            </div>
+                            <div class="feature-card interactive-card reveal">
+                                <h3 class="feature-title" data-en="Beta Pricing Model" data-ru="Бета Ценообразование">Beta Pricing Model</h3>
+                                <p class="feature-desc" data-en="During the current beta phase, 100% of the functionality is free to use. Secure your community without any upfront costs." data-ru="На этапе бета-тестирования 100% функционала доступно абсолютно бесплатно. Защитите свое сообщество без предварительных затрат.">During the current beta phase, 100% of the functionality is free to use. Secure your community without any upfront costs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- FAQ -->
-        <div class="page" id="page-faq">
+        <div class="page" id="faq">
             <section class="section">
                 <div class="container">
                     <div class="section-header reveal">
@@ -527,7 +602,8 @@
                 </div>
             </section>
         </div>
-    </main>
+        </div>
+    </div>
 
     <script>
         // Language state
@@ -539,59 +615,96 @@
             initLanguage();
             initFAQ();
             initCursor();
+            initCopyButtons();
             
             // Trigger initial reveals
             setTimeout(handleScroll, 100);
             window.addEventListener('scroll', handleScroll);
         }
 
-        // Navigation
-        function initNavigation() {
-            const links = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
-            const mobileToggle = document.getElementById('mobileToggle');
-            const nav = document.getElementById('nav');
-
-            function switchPage(pageId) {
-                pages.forEach(p => p.classList.remove('active'));
-                links.forEach(l => l.classList.remove('active'));
-
-                const targetPage = document.getElementById(`page-${pageId}`);
-                const targetLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
-
-                if (targetPage) targetPage.classList.add('active');
-                if (targetLink) targetLink.classList.add('active');
-
-                // Trigger animations for new page
-                setTimeout(handleScroll, 50);
-
-                // Close mobile menu
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    mobileToggle.classList.remove('active');
-                }
+        // Copy Code Buttons
+        function initCopyButtons() {
+            document.querySelectorAll('.cmd-code').forEach(el => {
+                const btn = document.createElement('button');
+                btn.className = 'copy-btn';
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+                btn.title = 'Copy Code';
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    navigator.clipboard.writeText(el.textContent.trim());
+                    const originalIcon = btn.innerHTML;
+                    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00ff9d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                    setTimeout(() => btn.innerHTML = originalIcon, 2000);
+                });
                 
-                window.scrollTo(0, 0);
-            }
+                const wrapper = document.createElement('div');
+                wrapper.className = 'cmd-wrapper';
+                el.parentNode.insertBefore(wrapper, el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(btn);
+            });
+        }
+
+        // Navigation (Smooth scroll and scrollspy)
+        function initNavigation() {
+            const links = document.querySelectorAll('.sidebar .nav-link');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const sidebar = document.getElementById('sidebar');
 
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    switchPage(link.dataset.page);
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetPage = document.getElementById(targetId);
+                    
+                    if (targetPage) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const elementPosition = targetPage.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                        
+                        if (sidebar.classList.contains('active')) {
+                            sidebar.classList.remove('active');
+                            mobileToggle.classList.remove('active');
+                        }
+                    }
                 });
             });
 
             // Mobile menu toggle
-            mobileToggle.addEventListener('click', () => {
-                nav.classList.toggle('active');
+            mobileToggle?.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
                 mobileToggle.classList.toggle('active');
             });
             
-            // Handle hash routing on load
-            const hash = window.location.hash.replace('#', '');
-            if (hash && document.getElementById(`page-${hash}`)) {
-                switchPage(hash);
-            }
+            // Scrollspy logic
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -80% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        links.forEach(link => {
+                            if (link.getAttribute('href') === '#' + entry.target.id) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.page').forEach(page => {
+                observer.observe(page);
+            });
         }
 
         // Language toggle
