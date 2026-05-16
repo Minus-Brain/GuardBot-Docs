@@ -74,7 +74,7 @@ GuardBot-Docs/
 - Sitemap: `https://docs.guardbot.tech/sitemap.xml`
 - Домен задается файлом `docs/CNAME`
 
-## Контрибьют
+## Участие в разработке
 
 Если хотите улучшить документацию или интерфейс сайта:
 
