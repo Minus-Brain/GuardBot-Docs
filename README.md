@@ -57,8 +57,10 @@ GuardBot-Docs/
 
 Примеры:
 
-- Python: `python -m http.server 8000` (из папки `docs`)
-- Node.js: `npx serve docs`
+- Python:
+  1. `cd docs`
+  2. `python -m http.server 8000`
+- Node.js (из корня проекта): `npx serve docs`
 
 ## 🛠 Редактирование контента
 
