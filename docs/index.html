@@ -80,6 +80,8 @@
             --primary-glow: rgba(0, 255, 157, 0.3);
             --bg-alt: rgba(255, 255, 255, 0.05);
         }
+        
+        .mobile-only-link { display: none; }
 
         .doc-list { list-style: none; padding: 0; }
         .doc-list li { padding: 12px 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; transition: background 0.3s; }
@@ -132,31 +134,18 @@
             .section-header { margin-bottom: 40px; padding: 0 10px; }
             .commands-grid, .modules-grid { grid-template-columns: 1fr; gap: 16px; }
             
-            #nav { display: none; }
-            #nav.active { 
-                display: flex !important; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                flex-direction: column; padding: 160px 30px 60px 30px; 
-                gap: 12px; z-index: 1100; align-items: center; justify-content: flex-start;
-                animation: menuFadeIn 0.3s ease forwards;
+            .sidebar.active #nav { display: flex !important; width: 100%; gap: 12px; }
+            .sidebar.active #nav .nav-link { 
+                font-size: 1.1rem; color: rgba(255,255,255,0.7); font-weight: 600; width: 100%; text-align: center; 
+                padding: 14px 20px; border-radius: 12px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04);
             }
-            @keyframes menuFadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-            #nav.active .nav-link { 
-                font-size: 1.25rem; color: rgba(255,255,255,0.5); font-weight: 600; width: 85%; text-align: center; 
-                padding: 14px 20px; border-radius: 14px; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-                transform: translateY(20px); opacity: 0; animation: linkSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            .sidebar.active #nav .nav-link:hover {
+                color: #fff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.1);
             }
-            @keyframes linkSlideUp { to { transform: translateY(0); opacity: 1; } }
-            #nav.active .nav-link:nth-child(1) { animation-delay: 0.1s; }
-            #nav.active .nav-link:nth-child(2) { animation-delay: 0.15s; }
-            #nav.active .nav-link:nth-child(3) { animation-delay: 0.2s; }
-            #nav.active .nav-link:nth-child(4) { animation-delay: 0.25s; }
-            #nav.active .nav-link:nth-child(5) { animation-delay: 0.3s; }
-
-            #nav.active .nav-link.active { 
-                color: #fff; background: rgba(255,255,255,0.12); 
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.1);
+            .sidebar.active #nav .nav-link.active { 
+                color: #000 !important; background: var(--primary) !important; font-weight: 700;
+                box-shadow: 0 4px 15px var(--primary-glow); border-color: transparent;
             }
             
             .header-actions { z-index: 1200; position: relative; gap: 8px; }
@@ -215,6 +204,7 @@
                 <a href="#modules" class="nav-link" data-en="Modules" data-ru="Модули" title="Go to Modules description">Modules</a>
                 <a href="#trust" class="nav-link" data-en="Why GuardBot" data-ru="Почему GuardBot" title="Why GuardBot">Why GuardBot</a>
                 <a href="#faq" class="nav-link" data-en="FAQ" data-ru="FAQ" title="Go to Frequently Asked Questions">FAQ</a>
+                <a href="https://guardbot.tech" target="_blank" rel="noopener noreferrer" class="nav-link mobile-only-link" data-en="Back to Site" data-ru="На сайт" style="border-top: 1px dashed rgba(255,255,255,0.1); margin-top: 12px; padding-top: 16px;" title="Return to main website guardbot.tech">Back to Site</a>
             </nav>
         </aside>
 
@@ -657,20 +647,29 @@
 
             links.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetPage = document.getElementById(targetId);
-                    
-                    if (targetPage) {
-                        e.preventDefault();
-                        const headerOffset = 80;
-                        const elementPosition = targetPage.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    const hrefAttr = link.getAttribute('href');
+                    if (hrefAttr && hrefAttr.startsWith('#')) {
+                        const targetId = hrefAttr.substring(1);
+                        const targetPage = document.getElementById(targetId);
                         
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                        
+                        if (targetPage) {
+                            e.preventDefault();
+                            const headerOffset = 80;
+                            const elementPosition = targetPage.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                            
+                            if (sidebar.classList.contains('active')) {
+                                sidebar.classList.remove('active');
+                                mobileToggle.classList.remove('active');
+                            }
+                        }
+                    } else {
+                        // For external links (like back to site), close the menu if open
                         if (sidebar.classList.contains('active')) {
                             sidebar.classList.remove('active');
                             mobileToggle.classList.remove('active');

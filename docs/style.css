@@ -364,20 +364,51 @@
             .section-header { margin-bottom: 40px; }
             
             .sidebar { display: none; }
+            
+            @keyframes menuFadeIn { 
+                from { opacity: 0; transform: translateY(-10px); } 
+                to { opacity: 1; transform: translateY(0); } 
+            }
+            
             .sidebar.active { 
                 display: flex !important; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
-                background: rgba(0,0,0,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                flex-direction: column; padding: 40px 30px; 
+                background: rgba(9, 9, 11, 0.98); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+                flex-direction: column; padding: 32px 24px; 
                 z-index: 1100; border-right: none; width: 100%; height: auto;
-                animation: menuFadeIn 0.3s ease forwards;
+                animation: menuFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             }
             .content { padding: 24px 16px; }
             
             /* Hide the start button inside the header on small devices to avoid crowding */
             .header-actions > .btn-primary { display: none; }
             
-            .mobile-toggle { display: flex; flex-direction: column; gap: 6px; background: none; border: none; cursor: pointer; padding: 4px; margin-left: 8px; }
-            .mobile-toggle span { width: 28px; height: 2px; background: var(--text); transition: 0.3s; border-radius: 2px; }
+            @media (max-width: 480px) {
+                .btn-back { display: none !important; }
+            }
+            
+            /* Burger menu and transitions */
+            .mobile-toggle {
+                display: flex; flex-direction: column; justify-content: center; gap: 6px; 
+                background: none; border: none; cursor: pointer; padding: 4px; margin-left: 8px;
+                width: 36px; height: 36px; position: relative; z-index: 1200;
+            }
+            .mobile-toggle span {
+                width: 26px; height: 2px; background: var(--text); 
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease; 
+                border-radius: 2px; display: block; margin: 0 auto;
+            }
+            /* Morph to X */
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .mobile-only-link { display: block !important; }
             
             .features-grid, .pricing-grid, .commands-grid { grid-template-columns: 1fr; gap: 16px; }
             
@@ -389,6 +420,21 @@
             .cta-title { font-size: 1.8rem; }
             .cta-desc { font-size: 1rem; margin-bottom: 24px; }
             
+            /* Swipeable comparison table wrapper */
+            .comparison-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                margin: 0 -8px;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            }
+            .comparison-wrapper::-webkit-scrollbar {
+                height: 4px;
+            }
+            .comparison-wrapper::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.12);
+                border-radius: 2px;
+            }
             .comparison-table th, .comparison-table td { padding: 16px; font-size: 0.95rem; }
             
             .faq-question { padding: 20px 16px; font-size: 1rem; }
